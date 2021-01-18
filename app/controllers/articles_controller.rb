@@ -1,7 +1,8 @@
 class ArticlesController < ApplicationController
-
+  before_action :set_article, only: [:show]
+  
   def show
-    @article = Article.find(params[:id])
+    
   end
 
   def new
@@ -16,5 +17,11 @@ class ArticlesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  private
+
+  def set_article
+    @article = Article.find(params[:id])
   end
 end
