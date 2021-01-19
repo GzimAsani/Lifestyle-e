@@ -1,3 +1,7 @@
-<h1> <%= @category.name %> </h1>
-<h1> <%= @category.priority %> </h1>
-     <%= @category.articles.name %>
+<div class="category">
+  <% @category.articles.order(created_at: :desc).each_with_index do |art,i| %>
+    <h1><%= link_to art.title, article_path(art.id) %></h1>
+    <h2><%= art.description %></h2>
+    
+  <% end %>
+</div>
