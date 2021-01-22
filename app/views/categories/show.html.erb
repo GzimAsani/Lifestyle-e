@@ -1,7 +1,32 @@
-<div class="category">
-  <% @category.articles.order(created_at: :desc).each_with_index do |art,i| %>
-    <h1><%= link_to art.title, article_path(art.id) %></h1>
-    <h2><%= art.description %></h2>
-    
-  <% end %>
+<div class='cont'>
+  <div class="row">
+    <% i = 1 %>
+      <% @category_articles.each do |article| %>
+        <% if i == 1 || i == 2 || i == 5 || i == 6 || i == 7 %>
+          <div class="picture">
+            <%= image_tag url_for(article.image), class: "card-image", width: '310px' %>
+          </div>
+          <p class="card-title text-center">
+            <%= link_to @category.name, category_path, class: 'text-orange' %> <br>
+            <%=link_to article.title, article_path(article), class: 'font-weight-bold text-dark' %> <br>
+            <%= truncate(article.description, length: 25) %> <br>
+            <%= link_to 'Read More', article_path(article.id), class: 'text-orange-hover read-more font-weight-bold' %>
+            
+          </p> 
+        <%else %>
+          <p class="card-title text-center">
+            <%= link_to @category.name, category_path, class: 'text-orange' %> <br>
+            <%=link_to article.title, article_path(article), class: 'font-weight-bold text-dark' %> <br>
+            <%= truncate(article.description, length: 20) %> <br>
+            <%= link_to 'Read More', article_path(article.id), class: 'text-orange-hover read-more font-weight-bold' %>
+          </p>
+          <div class="picture">
+            <%= image_tag url_for(article.image), class: "card-image", width: '310px' %>
+          </div> 
+        <% end %>
+          <% i = i+1 %>
+      <% end %>
+  </div>
+
+
 </div>
