@@ -32,12 +32,14 @@ left: 85%;
 }
 
 .card-image {
-  height: 200px;
+  height: 250px;
 }
 
 .card-title {
   width: 310px;
-  padding: 10px 0;
+  padding: 10px 20px;
+  background-color: white;
+  margin-bottom: 0;
 }
 
 .text-orange {
@@ -47,6 +49,21 @@ left: 85%;
 
 .cont {
   max-width: 95%;
-  margin-left: 40px;
-  
+  margin-left: 20px;
 }
+
+.category-name {
+ height: 200px;
+}
+
+.index-text {
+  color: white;
+  padding: 20px 10px;
+  text-decoration: underline;
+  font-weight: 1000;
+}
+
+.index-text:hover {
+  color: orange;
+}
+

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'categories#index'
-  resources :articles, only: [:show, :new, :create, :destroy]
+  resources :articles, only: [:show, :new, :create, :destroy] do 
+    resources :votes, only: [:destroy, :create]
+  end
   resources :categories, only: [:show, :index] 
   get 'signup', to: 'users#new'
   resources :users, only: [:create]

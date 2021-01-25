@@ -2,31 +2,28 @@
   <div class="row">
     <% i = 1 %>
       <% @category_articles.each do |article| %>
-        <% if i == 1 || i == 2 || i == 5 || i == 6 || i == 7 %>
+        <% if i == 1 || i == 2 || i == 5 || i == 6 || i == 9 || i == 10 %>
           <div class="picture">
-            <%= image_tag url_for(article.image), class: "card-image", width: '310px' %>
+            <%= image_tag url_for(article.image), class: "card-image", width: '313px' %>
           </div>
-          <p class="card-title text-center">
+          <div class="card-title text-center card">
             <%= link_to @category.name, category_path, class: 'text-orange' %> <br>
             <%=link_to article.title, article_path(article), class: 'font-weight-bold text-dark' %> <br>
-            <%= truncate(article.description, length: 25) %> <br>
-            <%= link_to 'Read More', article_path(article.id), class: 'text-orange-hover read-more font-weight-bold' %>
-            
-          </p> 
+            <%= truncate(article.description, length: 55) %> <br>
+            <%= link_to 'Read More', article_path(article.id), class: '' %>
+          </div> 
         <%else %>
-          <p class="card-title text-center">
+          <div class="card-title text-center card">
             <%= link_to @category.name, category_path, class: 'text-orange' %> <br>
             <%=link_to article.title, article_path(article), class: 'font-weight-bold text-dark' %> <br>
-            <%= truncate(article.description, length: 20) %> <br>
-            <%= link_to 'Read More', article_path(article.id), class: 'text-orange-hover read-more font-weight-bold' %>
-          </p>
+            <%= truncate(article.description, length: 55) %> <br>
+            <%= link_to 'Read More', article_path(article.id), class: '' %>
+          </div>
           <div class="picture">
-            <%= image_tag url_for(article.image), class: "card-image", width: '310px' %>
+            <%= image_tag url_for(article.image), class: "card-image", width: '313px' %>
           </div> 
         <% end %>
           <% i = i+1 %>
       <% end %>
   </div>
-
-
 </div>

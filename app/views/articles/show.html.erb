@@ -12,4 +12,14 @@
       <p class='author'><strong>Written by: <%= @article.user.username %> </strong></p>
     </div>
 </div>
+ <% if logged_in?  %>
+        <span class="like"><%= @article.votes.count %> <%= (@article.votes.count) == 1 ? '' : 'Votes'%>
+          <% pre_like = @article.votes.find { |like| like.user_id == current_user.id} %>
+          <% if pre_like %>
+          <%= button_to 'Unvote', article_vote_path(@article, pre_like), method: :delete %>
+          <% else %>
+          <%= button_to 'Vote', article_votes_path(@article), method: :post %>
+          <% end %>
+        </span>
+<% end %>
 <%= link_to 'Delete', article_path(@article), class: 'btn btn-outline-danger', method: :delete, data: {confirm: "Are you sure?"}%>
