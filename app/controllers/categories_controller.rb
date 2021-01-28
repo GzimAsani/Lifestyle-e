@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def index
     @category = Category.all
     @article = Article.all.order(created_at: :desc)
@@ -9,5 +8,4 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category_articles = @category.articles.order(created_at: :desc)
   end
-
 end

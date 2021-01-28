@@ -1,8 +1,5 @@
 class SessionsController < ApplicationController
-
-  def new
-
-  end
+  def new; end
 
   def create
     user = User.find_by(username: params[:session][:username].downcase)
@@ -18,7 +15,7 @@ class SessionsController < ApplicationController
 
   def destroy
     session[:user_id] = nil
-    flash[:notice] = "Logged out!"
+    flash[:notice] = 'Logged out!'
     redirect_to categories_path
   end
 end

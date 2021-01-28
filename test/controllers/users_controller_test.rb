@@ -1,9 +1,8 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-
   setup do
-    @user = User.create(username: "Gzim")
+    @user = User.create(username: 'Gzim')
   end
 
   test 'should create user' do
