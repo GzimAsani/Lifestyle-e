@@ -4,6 +4,7 @@ class ArticlesController < ApplicationController
   before_action :require_same_user, only: [:destroy]
 
   def show
+    
     @article = Article.includes(:image_attachment, :user).find_by(id: params[:id])
   end
 
