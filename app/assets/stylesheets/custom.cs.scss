@@ -7,8 +7,8 @@
 }
 
 .nav-right {
-position: absolute;
-left: 85%;
+  position: absolute;
+  left: 85%;
 }
 
 .topnav-right {
@@ -20,15 +20,15 @@ left: 85%;
 }
 
 .bold {
-  height: 2px; 
-  background: black; 
+  height: 2px;
+  background: black;
   margin-bottom: 20px;
 }
 
 .author {
-  color:rgb(189, 166, 133);
+  color: rgb(189, 166, 133);
   font-size: 10px;
-  border: 10px, black;
+  border: 10px;
 }
 
 .card-image {
@@ -43,12 +43,12 @@ left: 85%;
 }
 
 .text-orange {
-  color:rgb(248, 147, 4);
+  color: rgb(248, 147, 4);
   font-weight: 1000;
 }
 
 .text-orange a {
-  color:rgb(248, 147, 4);
+  color: rgb(248, 147, 4);
   font-weight: 1000;
 }
 
@@ -58,7 +58,7 @@ left: 85%;
 }
 
 .category-name {
- height: 200px;
+  height: 200px;
 }
 
 .index-text {
@@ -79,7 +79,7 @@ left: 85%;
 }
 
 .primary-text a {
-  color: orange!important;
+  color: orange !important;
 }
 
 .description {
@@ -93,7 +93,7 @@ left: 85%;
   max-height: 500px;
 }
 
-.logo{
+.logo {
   left: 20px;
   position: absolute;
 }
@@ -105,9 +105,4 @@ body {
 
 #page-content {
   flex: 1 0 auto;
-  
-}
-
-#sticky-footer {
-  flex-shrink: none;
 }
