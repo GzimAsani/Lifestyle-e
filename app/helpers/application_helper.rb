@@ -29,6 +29,4 @@ module ApplicationHelper
   def vote_count(article)
     article.votes.count
   end
-
-
 end
