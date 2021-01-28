@@ -1,42 +1,26 @@
 class VotesController < ApplicationController
-  before_action :find_article
-  before_action :find_like, only: [:destroy]
-
   def create
-    if already_liked?
-      flash[:alert] = 'You have already liked this article!'
-    else
-      flash[:notice] = 'You just liked this article!'
-      @article.votes.create(user_id: current_user.id)
-    end
-    redirect_to articles_path
-  end
-
-    def destroy
-      if !already_liked?
-        flash[:alert] = 'Cannot unlike this article!'
+    vote = current_user.votes.new(article_id: params[:article_id])
+    if vote.save
+      if params[:category_id]
+        redirect_to category_path(params[:category_id]), notice: 'You voted'
       else
-        flash[:alert] = 'YOu just unliked this article'
-        @vote.destroy
+        redirect_to article_path(params[:article_id]), notice: 'You voted'
       end
-      redirect_to articles_path
+    else
+      flash[:danger] = 'You can not vote'
     end
-  
-
-
-
-private
-
-  def find_article
-    @article = Article.find(params[:article_id])
   end
 
-  def already_liked?
-    Vote.where(user_id: current_user.id, article_id:
-    params[:article_id]).exists?
-  end
+  def destroy
+    vote = Vote.find_by(id: params[:id], article_id: params[:article_id], user: current_user)
+    return unless vote
 
-  def find_like
-    @vote = @article.votes.find(params[:id])
+    vote.destroy
+    if params[:category_id]
+      redirect_to category_path(params[:category_id]), notice: 'You voted'
+    else
+      redirect_to article_path(params[:article_id]), notice: 'You voted'
+    end
   end
 end

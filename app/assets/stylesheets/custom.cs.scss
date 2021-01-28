@@ -1,7 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap';
 
 .nav-items {
-  left: 40%;
+  left: 35%;
   float: none;
   position: absolute;
 }
@@ -65,5 +65,26 @@ left: 85%;
 
 .index-text:hover {
   color: orange;
+}
+
+.primary-text {
+  position: absolute;
+  bottom: 40px;
+  background-color: inherit;
+}
+
+.primary-text a {
+  color: orange!important;
+}
+
+.description {
+  position: absolute;
+  bottom: 10px;
+  left: 17px;
+  color: white;
+}
+
+.featured {
+  max-height: 500px;
 }
 
