@@ -31,7 +31,7 @@ This project was built using these technologies.
 * PG
 
 ## Live demo
-* Live Demo Link --> App Deployed with Heroku: [LifeStyle-Articles](https://stormy-anchorage-23406.herokuapp.com/) :point_left:
+* Live Demo Link --> App Deployed with Heroku: [LifeStyle-Articles](https://dry-savannah-74700.herokuapp.com/) :point_left:
 
 ### Getting Started
 
