@@ -66,6 +66,18 @@ Setup database with:
 $ rails db:migrate
 ```
 
+To have some categories ready run
+
+```
+$ rails db:seed
+```
+
+Run yarn
+
+```
+$ yarn
+```
+
 ### Usage
 
 Start server with:
