@@ -2,6 +2,7 @@ class CategoriesController < ApplicationController
   def index
     @category = Category.all
     @article = Article.all.order(created_at: :desc)
+   
   end
 
   def show

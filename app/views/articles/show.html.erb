@@ -15,7 +15,7 @@
 </div>
   <div class='votes d-flex justify-content-md-center'>
     <% if current_user %>
-      <small class='mr-1'><%= vote_devote2(@article)%></small> <br>
+      <small class='mr-1'><%= vote_devote(@article)%></small> <br>
       <p class="mr-5 mt-2 text-orange">Number of likes: <%= vote_count(@article)%></p> 
     <%end%>
     <%= link_to 'Delete', article_path(@article), class: 'btn btn-outline-danger', method: :delete, data: {confirm: "Are you sure?"}%>
