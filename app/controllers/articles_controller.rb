@@ -59,11 +59,4 @@ class ArticlesController < ApplicationController
     redirect_to @article
   end
 
-  def require_same_user
-    if current_user != @article.user && !current_user.admin?
-      flash[:alert] = 'You can edit/delete only your own articles'
-      redirect_to @article
-    end
-  end
-
 end
