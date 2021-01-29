@@ -5,7 +5,6 @@ class CategoriesController < ApplicationController
     @art = Article.all
   end
 
- 
   def show
     @category = Category.find(params[:id])
     @category_articles = @category.articles.order(created_at: :desc)
