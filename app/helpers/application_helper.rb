@@ -1,5 +1,4 @@
 module ApplicationHelper
-
   def vote_devote(article)
     vote = Vote.find_by(user_id: current_user.id, article_id: article.id)
     if vote

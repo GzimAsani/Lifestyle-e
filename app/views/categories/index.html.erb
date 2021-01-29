@@ -1,6 +1,6 @@
 <% all_articles %>
 <% ref = 0%>
-<% all_articles.each do |art|%>
+<% @art.each do |art|%>
   <% count = art.votes.count %>
   <%if count > ref%>
     <% ref = count%>
