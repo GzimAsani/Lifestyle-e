@@ -18,5 +18,8 @@
       <small class='mr-1'><%= vote_devote(@article)%></small> <br>
       <p class="mr-5 mt-2 text-orange">Number of likes: <%= vote_count(@article)%></p> 
     <%end%>
-    <%= link_to 'Delete', article_path(@article), class: 'btn btn-outline-danger', method: :delete, data: {confirm: "Are you sure?"}%>
+    <% if logged_in? && current_user == @article.user %>
+      <small> <%= link_to 'Delete', article_path(@article), class: 'btn btn-outline-danger', method: :delete, data: {confirm: "Are you sure?"}%></small>
+      <small> <%= link_to 'Edit', edit_article_path(@article), class: 'btn btn-outline-warning ml-3' %></small>
+    <%end%>
   </div>

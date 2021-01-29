@@ -10,10 +10,6 @@ module ApplicationHelper
     end
   end
 
-  def all_articles
-    @art = Article.all
-  end
-
   def vote_count(article)
     article.votes.count
   end

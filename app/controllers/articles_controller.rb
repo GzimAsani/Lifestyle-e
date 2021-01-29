@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show destroy]
+  before_action :set_article, only: %i[show destroy edit update]
   before_action :require_user, only: [:new]
-  before_action :require_same_user, only: [:destroy]
+  before_action :require_same_user, only: [:destroy, :edit, :update]
 
   def show
     @article = Article.includes(:image_attachment, :user).find_by(id: params[:id])
@@ -12,7 +12,7 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(params.require(:article).permit(:title, :description, :image, category_ids: []))
+    @article = Article.new(article_params)
     @article.user = current_user
     if @article.save
       flash[:notice] = 'Article was created successfully.'
@@ -28,10 +28,28 @@ class ArticlesController < ApplicationController
     flash[:notice] = "You have successfuly delete article with id of #{@article.id}"
   end
 
+  def edit
+    
+  end
+
+  def update
+    if @article.update(article_params)
+      flash[:notice] = "Article was updated successfully."
+      redirect_to @article
+    else
+      render 'edit'
+    end
+  end
+
+
   private
 
   def set_article
     @article = Article.find(params[:id])
+  end
+
+  def article_params
+    params.require(:article).permit(:title, :description, :image, category_ids: [])
   end
 
   def require_same_user
@@ -40,4 +58,12 @@ class ArticlesController < ApplicationController
     flash[:alert] = 'You can delete  only your own articles!'
     redirect_to @article
   end
+
+  def require_same_user
+    if current_user != @article.user && !current_user.admin?
+      flash[:alert] = 'You can edit/delete only your own articles'
+      redirect_to @article
+    end
+  end
+
 end
