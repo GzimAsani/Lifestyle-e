@@ -1,0 +1,32 @@
+<% @art %>
+<% ref = 0%>
+<% @art.each do |art|%>
+  <% count = art.votes.count %>
+  <%if count > ref%>
+    <% ref = count%>
+    <% article = art %>
+    <div class="card">
+      <%= image_tag(article.image,class:"featured")%>
+      <div class="overlay">
+        <h5 class="card-title primary-text"><%= link_to "#{article.title}", article_path(article)%></h5>
+        <%if art.description.length > 50 %>
+        <p class='description'><%= truncate(article.description,length:50)%><%= link_to "read more", article_path(article)%></p>
+        <%else%>
+        <h5 class="card-text description"><%= article.description%> </h5>
+        <%end%>
+      </div>
+    </div>
+  <%end%>
+<%end%>
+
+
+<div class="row no-gutters">
+  <% @category.each do |category| %>
+  <div class="category col-12 col-sm-6 col-lg-3">
+    <div class="category-name" style="background: url(' https://picsum.photos/id/40<%= category.id %>/300') no-repeat; background-size: cover;">
+      <%= link_to "#{category.name}", category_path(category), class: 'index-text' %>
+    </div>
+  </div>
+  <% end %>
+</div>
+
