@@ -1,7 +1,9 @@
 ## LifeStyle Articles
 
   <p class="align-center">
-    This project is the Capstone of the Microverse curriculum at the end of the Ruby on Rails module!
+## About The Project
+  This is rails capstone project where demonstrates my skills of RubyOnRails module. 
+  This project is a webapp where users can register only by providing an username. A login user can create articles & vote       articles. Categories cannot be created but I am thinking to improve this app and add the admin user which can edit/delete       other   users articles and create new categories
 
 
 ## Table of Contents
@@ -14,10 +16,6 @@
 * [Contributors](#contributors)
 * [Acknowledgements](#acknowledgements)
 * [License](#license)
-
-## About The Project
-  This is rails capstone project where demonstrates my skills of RubyOnRails module. 
-  This project is a webapp where users can register only by providing an username. A login user can create articles & vote articles. Categories cannot be created but I am thinking to improve this app and add the admin user which can edit/delete other users articles and create new categories
 
 ### Built With
 This project was built using these technologies.
