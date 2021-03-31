@@ -1,7 +1,6 @@
 ## LifeStyle Articles
 
   <p class="align-center">
-## About the Project
   
 * This is rails capstone project where demonstrates my skills of RubyOnRails module. 
 This project is a webapp where users can register only by providing an username. A login user can create articles & vote     
